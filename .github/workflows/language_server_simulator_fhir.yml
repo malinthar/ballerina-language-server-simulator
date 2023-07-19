@@ -36,7 +36,7 @@ jobs:
         run: |
           export DISPLAY=':99.0'
           /usr/bin/Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
-          ./gradlew clean :language-server-simulator:runLSSimulatorOnFHIR -Dls.simulation.skipGenerators=${{ matrix.skipGenerators }}
+          ./gradlew clean :simulator-core:runLSSimulatorOnFHIR -Dls.simulation.skipGenerators=${{ matrix.skipGenerators }}
 
       - name: Check Simulation Failure
         run: if test -f dump.hprof; then exit 1; else exit 0; fi
