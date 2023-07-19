@@ -1,4 +1,4 @@
-name: Language Server Simulator on nBallerina
+name: Language Server Simulator on FHIR
 
 on:
   schedule:
