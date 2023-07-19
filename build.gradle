@@ -1,0 +1,46 @@
+apply plugin: 'java'
+
+group = 'org.ballerinalang'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenLocal()
+    maven {
+        url = 'https://maven.wso2.org/nexus/content/repositories/releases/'
+    }
+
+    maven {
+        url = 'https://maven.wso2.org/nexus/content/repositories/snapshots/'
+    }
+
+    maven {
+        url = 'https://maven.wso2.org/nexus/content/groups/wso2-public/'
+    }
+
+    maven {
+        url = 'https://repo.maven.apache.org/maven2'
+    }
+
+    maven {
+        url = 'https://maven.pkg.github.com/ballerina-platform/*'
+        credentials {
+            username 'malinthar'
+            password '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'
+        }
+    }
+}
+
+dependencies {
+    implementation "org.slf4j:slf4j-api:${project.slf4jApiVersion}"
+    implementation group: 'org.ballerinalang', name: 'ballerina-lang', version: "${ballerinaLangVersion}"
+    implementation group: 'org.ballerinalang', name: 'ballerina-parser', version: "${ballerinaLangVersion}"
+    implementation group: 'org.ballerinalang', name: 'language-server-core', version: "${ballerinaLangVersion}"
+    implementation group: 'org.ballerinalang', name: 'ballerina-tools-api', version: "${ballerinaLangVersion}"
+    implementation group: 'org.ballerinalang', name: 'language-server-commons', version: "${ballerinaLangVersion}"
+    implementation group: 'org.ballerinalang', name: 'ballerina-test-utils', version: "${ballerinaLangVersion}"
+    implementation group: 'org.eclipse.lsp4j', name:'org.eclipse.lsp4j', version:"${eclipseLsp4jVersion}"
+    implementation group: 'org.eclipse.lsp4j', name:'org.eclipse.lsp4j.jsonrpc', version:"${eclipseLsp4jJsonrpcVersion}"
+
+    implementation "org.slf4j:slf4j-jdk14:${slf4jJdk14Version}"
+    implementation "com.google.code.gson:gson:${gsonVersion}"
+}
